@@ -11,7 +11,7 @@
     {{-- <img style="width:100%" src="/storage/cover_images/{{$post->cover_image}}"> --}}
 
     <br><br>
-    <div>
+    <div style="overflow-wrap: break-word">
         {!!$post->body!!}
     </div>
     <hr>

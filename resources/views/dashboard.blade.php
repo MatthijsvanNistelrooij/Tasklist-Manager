@@ -6,8 +6,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="width: 100%">
                 <div class="wrap-collabsible">
                     <input id="collapsible" class="toggle" type="checkbox">
                         <label for="collapsible" class="lbl-toggle">New Task</label>
@@ -48,15 +47,16 @@ text-transform: uppercase; */
 text-align: left;
 padding: 1rem;
 background: rgba(211,211,211, 0.4);
-color:  rgba(0,0,0, 0.5);
+color:  rgba(0,0,0);
 cursor: pointer;
 transition: all 0.15s ease-out;
 
 }
 
 .lbl-toggle:hover {
-color:  rgba(0,0,0, 0.8);
-background: rgba(144,144,144,0.3);
+color:  rgba(0,0,0);
+background: rgba(128,128,128,0.3);
+border: none;
 }
 
 .lbl-toggle::before {
@@ -94,6 +94,10 @@ max-height: 100vh;
 }
 </style>
 
+
+
+
+
 <div class="card-body">
 
 
@@ -125,8 +129,14 @@ max-height: 100vh;
 </tr>
 @foreach($posts as $post)
 <tr>
-<td>{{$post->title}}</td>
-<td><a href="/posts/{{$post->id}}" class="btn btn-default" style="border: 1px solid gray">View</a></td>
+    <td>{{$post->title}}</td>
+        <td>
+            <a href="/posts/{{$post->id}}"
+                class="btn btn-default"
+                 style="border: 1px solid gray; align-items:right">
+                 View
+                </a>
+            </td>
 <td>
 {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right'])!!}
 {{Form::hidden('_method', 'DELETE')}}
